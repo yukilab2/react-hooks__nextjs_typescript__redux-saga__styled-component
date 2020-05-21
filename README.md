@@ -1,8 +1,3 @@
-# TODO
-
-- maybe: _document.tsx, _app.tsxは必要になるまで作らない。 styled-componentでは必要なかった。
-    - 参考： [how nextjs works](https://jsramblings.com/server-side-rendered-styled-components-with-nextjs/)
-
 # Note
 
 - `yarn dev`を使っている間、 
