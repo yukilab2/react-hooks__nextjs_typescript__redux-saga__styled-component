@@ -16,5 +16,5 @@
 # thanks
 - [setting up next.js/type-script/styled-component project](https://future-architect.github.io/typescript-guide/reactenv.html)
 - [Using Next.js ▲ with styled-components 💅 easy way](https://frontendmantra.com/using-next-js-with-styled-components-easy-way/)
-- [styled-componets Hooksでの使い方](https://material-ui.com/styles/basics/)
+- [styled-components Hooksでの使い方](https://material-ui.com/styles/basics/)
 

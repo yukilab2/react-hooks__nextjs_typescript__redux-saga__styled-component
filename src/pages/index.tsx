@@ -1,7 +1,7 @@
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
 
-import { Toolbar } from "@material-ui/core";
+import {Toolbar} from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -9,61 +9,30 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import {
-  createStyles,
-  // Theme,
-  withStyles,
-  WithStyles
-} from "@material-ui/core/styles";
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
+import styled from 'styled-components';
+import {useSelector} from "react-redux";
+import * as Example from "../ducks/example";
 
-function styles(/* theme: Theme */) {
-  return createStyles({
-    root: {
-      paddingTop: 44
-    }
-  });
-}
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  },
+});
 
-interface Props {
-  children?: React.ReactNode;
-}
+const AppBarX = styled(AppBar)`
+  position: unset;
+`;
 
-interface State {
-  openDialog: boolean;
-}
+const Index: React.FC = () => {
+  const [opened, setOpened] = useState(false);
+  const classes = useStyles();
+  const list = useSelector(Example.selectors.list)
 
-class Index extends React.Component<
-  Props & WithStyles<typeof styles>,
-  State
-> {
-  public state = {
-    openDialog: false
-  };
-
-  constructor(props: Props & WithStyles<typeof styles>) {
-    super(props);
-  }
-
-  public handleCloseDialog = () => {
-    this.setState({
-      openDialog: false
-    });
-  };
-
-  public handleClickShowDialog = () => {
-    this.setState({
-      openDialog: true
-    });
-  };
-
-  public render() {
-    const { classes } = this.props;
-    const { openDialog } = this.state;
-
-    return (
+  return (
       <div className={classes.root}>
-        <Dialog open={openDialog} onClose={this.handleCloseDialog}>
+        <Dialog open={opened} onClose={() => setOpened(false)}>
           <DialogTitle>Dialog Sample</DialogTitle>
           <DialogContent>
             <DialogContentText>
@@ -72,50 +41,55 @@ class Index extends React.Component<
           </DialogContent>
           <DialogActions>
             <Button
-              color="primary"
-              onClick={this.handleCloseDialog}
+                color="primary"
+                onClick={() => setOpened(false)}
             >
-                         OKだよ
-                     </Button>
-                 </DialogActions>
-             </Dialog>
-             <AppBar>
-                 <Toolbar>
-                     <Typography variant="h6" color="inherit">
-                         TypeScript + Next.js + Material UI Sample
-                     </Typography>
-                 </Toolbar>
-             </AppBar>
-             <Typography variant="h2" gutterBottom={true}>
-                 Material-UI
-             </Typography>
-             <Typography variant="h3" gutterBottom={true}>
-                 example project
-             </Typography>
-             <Typography variant="h4" gutterBottom={true}>
-               (mode: {process.env.EXAMPLE_MODE})
-             </Typography>
-             <Typography gutterBottom={true}>
-                 <Link href="/about">
-                     <a>Go to the about page</a>
-                 </Link>
-             </Typography>
-             <Button
-                 variant="contained"
-                 color="secondary"
-                 onClick={this.handleClickShowDialog}
-             >
-                 Shot Dialog
-             </Button>
-             <style jsx={true}>{`
-                 .root {
-                     text-align: center;
-                 }
-             `}</style>
+              OKだよ
+            </Button>
+            </DialogActions>
+        </Dialog>
+        <AppBarX>
+          <Toolbar>
+            <Typography variant="h6" color="inherit">
+              TypeScript + Next.js + Material UI Sample
+            </Typography>
+          </Toolbar>
+        </AppBarX>
+        <Typography variant="h2" gutterBottom={true}>
+          Material-UI
+        </Typography>
+        <Typography variant="h3" gutterBottom={true}>
+          example project
+        </Typography>
+        <Typography variant="h4" gutterBottom={true}>
+          (mode: {process.env.EXAMPLE_MODE})
+        </Typography>
+        <ul>
+          {
+            list && list.map((item, key) => <li key={key}>[{item.id}] {item.name}</li>)
+          }
+        </ul>
+        <Typography gutterBottom={true}>
+          <Link href="/about">
+            <a>Go to the about page</a>
+          </Link>
+        </Typography>
+        <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setOpened(true)}
+        >
+          Open Dialog
+        </Button>
+        <style
+            jsx={true}>{`
+               .root {
+                   text-align: center;
+               }
+           `}</style>
       </div>
-    );
-  }
+  );
 }
 
-export default withStyles(styles)(Index);
+export default Index;
 

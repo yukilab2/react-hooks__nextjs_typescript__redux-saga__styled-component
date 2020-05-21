@@ -4,7 +4,8 @@ import $ from 'jquery';
 
 const initial: Types.StateT = {
   item: null,
-  list: [],
+  // list: [],
+  list: [{id: 0, name:'first'}],
   error: null
 };
 
