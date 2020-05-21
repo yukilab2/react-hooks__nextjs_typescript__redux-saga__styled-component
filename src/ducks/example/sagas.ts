@@ -1,4 +1,4 @@
-import {put, takeEvery, call} from 'redux-saga/effects';
+import { put, takeEvery, call } from 'redux-saga/effects';
 import * as Actions from './actions';
 import * as Types from './types';
 // import selectors from '../example/selectors';
@@ -12,9 +12,9 @@ export function* sagaCreate(action: Types.SagaCreateRequestT) {
     error: string | null
   } = yield call(Util.post, '/api/example/create', action.payload);
   if (ret.error) {
-    yield put(Actions.storeError({error: ret.error}));
+    yield put(Actions.storeError({ error: ret.error }));
   } else {
-    yield put(Actions.storeItem(ret.item))
+    yield put(Actions.storeItem(ret.item));
   }
 }
 
@@ -33,9 +33,9 @@ export function* sagaRead(action: Types.SagaReadRequestT) {
     error: string | null
   } = yield call(Util.post, '/api/read', action.payload);
   if (ret.error) {
-    yield put(Actions.storeError({error: ret.error}));
+    yield put(Actions.storeError({ error: ret.error }));
   } else {
-    yield put(Actions.storeItem(ret.item))
+    yield put(Actions.storeItem(ret.item));
   }
 }
 
@@ -51,12 +51,11 @@ export function* sagaList(action: Types.SagaListRequestT) {
     error: string | null
   } = yield call(Util.post, '/api/list', action.payload);
   if (ret.error) {
-    yield put(Actions.storeError({error: ret.error}));
+    yield put(Actions.storeError({ error: ret.error }));
   } else {
-    yield put(Actions.storeList(ret.items))
+    yield put(Actions.storeList(ret.items));
   }
 }
-
 
 export default function* watcher() {
   yield takeEvery(Types.ActionType.sagaCreate, sagaCreate);

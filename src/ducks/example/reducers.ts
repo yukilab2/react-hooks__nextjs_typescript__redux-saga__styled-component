@@ -1,11 +1,11 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import * as Types from './types';
 import $ from 'jquery';
 
 const initial: Types.StateT = {
   item: null,
   // list: [],
-  list: [{id: 0, name:'first'}],
+  list: [{ id: 0, name: 'first' }],
   error: null
 };
 
@@ -41,7 +41,7 @@ const listReducer = (state = initial.list, action: any) => {
       return action.payload;
     }
   }
-  return state
+  return state;
 };
 
 const reducer = combineReducers({

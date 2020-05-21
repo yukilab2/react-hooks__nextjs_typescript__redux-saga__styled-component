@@ -27,7 +27,7 @@ export type StateT = {
   item: ItemT | null;
   list: ItemT[] | null;
   error: string | null;
-}
+};
 
 export type SagaCreateRequestT = {
   type: ActionType;
@@ -41,24 +41,24 @@ export type SagaCreateResponseT = {
 
 export type SagaReadRequestPayloadT = {
   id: number;
-}
+};
 
 export type SagaReadRequestT = {
   type: ActionType;
   payload: SagaReadRequestPayloadT;
-}
+};
 
 export type SagaListRequestPayloadT = {
   startIndex: number;
   count?: number;
   orderBy?: string;
   ascend?: boolean;
-}
+};
 
 export type SagaListRequestT = {
   type: ActionType;
   payload: SagaListRequestPayloadT;
-}
+};
 
 export type SagaListResponseT = {
   items?: ItemT[];
@@ -70,7 +70,7 @@ export type SagaDeleteRequestPayloadT = SagaReadRequestPayloadT;
 export type SagaDeleteRequestT = {
   type: ActionType;
   payload: SagaDeleteRequestPayloadT;
-}
+};
 
 export type storeErrorPayloadT = {
   error?: string;

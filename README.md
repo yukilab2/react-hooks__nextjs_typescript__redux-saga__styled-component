@@ -17,4 +17,7 @@
 - [setting up next.js/type-script/styled-component project](https://future-architect.github.io/typescript-guide/reactenv.html)
 - [Using Next.js ▲ with styled-components 💅 easy way](https://frontendmantra.com/using-next-js-with-styled-components-easy-way/)
 - [styled-components Hooksでの使い方](https://material-ui.com/styles/basics/)
+- [tslint setup(official)](https://palantir.github.io/tslint/usage/cli/)
+- [tslint nextjs setup](https://dev.to/oahehc/how-to-config-react-project-with-next-js-typescript-tslint-and-jest-11l0)
+
 

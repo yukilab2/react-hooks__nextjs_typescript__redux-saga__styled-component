@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 /**
  *
@@ -19,19 +19,19 @@ export const post = (
   return axios.post(
       `${process.env.EXAMPLE_DOMAIN}${path}`,
       data,
-      {
-        headers: _headers
-      })
+    {
+      headers: _headers
+    })
       .then((response: AxiosResponse) => {
         return response.data;
       })
       .catch(error => {
         if (typeof error === 'string') {
-          return {error};
+          return { error };
         }
         if (error && typeof error.stack === 'string') {
-          return {error: error.stack};
+          return { error: error.stack };
         }
-        return {error: error.toString()};
+        return { error: error.toString() };
       });
 };

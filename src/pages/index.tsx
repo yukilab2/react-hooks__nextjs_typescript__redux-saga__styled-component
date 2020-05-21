@@ -1,34 +1,35 @@
-import Link from "next/link";
-import React, {useState} from "react";
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-import {Toolbar} from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from "@material-ui/core/Typography";
+import { Toolbar } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
-import {useSelector} from "react-redux";
-import * as Example from "../ducks/example";
+import { useSelector } from 'react-redux';
+import * as Example from '../ducks/example';
 
 const useStyles = makeStyles({
   root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-  },
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+  }
 });
 
 const AppBarX = styled(AppBar)`
   position: unset;
+  color: yellow;
 `;
 
 const Index: React.FC = () => {
   const [opened, setOpened] = useState(false);
   const classes = useStyles();
-  const list = useSelector(Example.selectors.list)
+  const list = useSelector(Example.selectors.list);
 
   return (
       <div className={classes.root}>
@@ -46,7 +47,7 @@ const Index: React.FC = () => {
             >
               OKだよ
             </Button>
-            </DialogActions>
+          </DialogActions>
         </Dialog>
         <AppBarX>
           <Toolbar>
@@ -89,7 +90,6 @@ const Index: React.FC = () => {
            `}</style>
       </div>
   );
-}
+};
 
 export default Index;
-
