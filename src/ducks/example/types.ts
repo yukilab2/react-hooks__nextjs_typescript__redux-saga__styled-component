@@ -11,12 +11,12 @@ export enum ActionType {
   storeItem = 'example/storeItem',
   storeList = 'example/storeList',
   storeError = 'example/storeError',
-  cleanError = 'example/cleanError'
+  cleanError = 'example/cleanError',
 }
 
 export type ItemWithoutIdT = {
-  id?: number;  // 新規作成中のformには、id存在せず
-  name?: string
+  id?: number; // 新規作成中のformには、id存在せず
+  name?: string;
 };
 
 export type ItemT = ItemWithoutIdT & {
@@ -73,7 +73,7 @@ export type SagaDeleteRequestT = {
 };
 
 export type storeErrorPayloadT = {
-  error?: string;
+  error: string;
 };
 
 export type storeErrorT = {

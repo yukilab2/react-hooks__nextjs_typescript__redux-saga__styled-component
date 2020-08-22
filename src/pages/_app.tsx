@@ -6,11 +6,12 @@ import { Provider } from 'react-redux';
 const store = configureStore();
 
 const MyApp: React.FC<AppProps> = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { Component, pageProps } = props;
   return (
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
   );
 };
 
