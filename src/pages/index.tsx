@@ -17,8 +17,8 @@ import * as Example from '../ducks/example';
 
 const useStyles = makeStyles({
   root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
-  }
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  },
 });
 
 const AppBarX = styled(AppBar)`
@@ -32,63 +32,56 @@ const Index: React.FC = () => {
   const list = useSelector(Example.selectors.list);
 
   return (
-      <div className={classes.root}>
-        <Dialog open={opened} onClose={() => setOpened(false)}>
-          <DialogTitle>Dialog Sample</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Easy to use Material UI Dialog.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button
-                color="primary"
-                onClick={() => setOpened(false)}
-            >
-              OKだよ
-            </Button>
-          </DialogActions>
-        </Dialog>
-        <AppBarX>
-          <Toolbar>
-            <Typography variant="h6" color="inherit">
-              TypeScript + Next.js + Material UI Sample
-            </Typography>
-          </Toolbar>
-        </AppBarX>
-        <Typography variant="h2" gutterBottom={true}>
-          Material-UI
-        </Typography>
-        <Typography variant="h3" gutterBottom={true}>
-          example project
-        </Typography>
-        <Typography variant="h4" gutterBottom={true}>
-          (mode: {process.env.EXAMPLE_MODE})
-        </Typography>
-        <ul>
-          {
-            list && list.map((item, key) => <li key={key}>[{item.id}] {item.name}</li>)
-          }
-        </ul>
-        <Typography gutterBottom={true}>
-          <Link href="/about">
-            <a>Go to the about page</a>
-          </Link>
-        </Typography>
-        <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => setOpened(true)}
-        >
-          Open Dialog
-        </Button>
-        <style
-            jsx={true}>{`
-               .root {
-                   text-align: center;
-               }
-           `}</style>
-      </div>
+    <div className={classes.root}>
+      <Dialog open={opened} onClose={() => setOpened(false)}>
+        <DialogTitle>Dialog Sample</DialogTitle>
+        <DialogContent>
+          <DialogContentText>Easy to use Material UI Dialog.</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button color="primary" onClick={() => setOpened(false)}>
+            OKだよ
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <AppBarX>
+        <Toolbar>
+          <Typography variant="h6" color="inherit">
+            TypeScript + Next.js + Material UI Sample
+          </Typography>
+        </Toolbar>
+      </AppBarX>
+      <Typography variant="h2" gutterBottom={true}>
+        Material-UI
+      </Typography>
+      <Typography variant="h3" gutterBottom={true}>
+        example project
+      </Typography>
+      <Typography variant="h4" gutterBottom={true}>
+        (mode: {process.env.EXAMPLE_MODE})
+      </Typography>
+      <ul>
+        {list &&
+          list.map((item, key) => (
+            <li key={key}>
+              [{item.id}] {item.name}
+            </li>
+          ))}
+      </ul>
+      <Typography gutterBottom={true}>
+        <Link href="/about">
+          <a>Go to the about page</a>
+        </Link>
+      </Typography>
+      <Button variant="contained" color="secondary" onClick={() => setOpened(true)}>
+        Open Dialog
+      </Button>
+      <style jsx={true}>{`
+        .root {
+          text-align: center;
+        }
+      `}</style>
+    </div>
   );
 };
 

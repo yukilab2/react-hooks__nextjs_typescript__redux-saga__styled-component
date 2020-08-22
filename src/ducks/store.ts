@@ -21,7 +21,7 @@ const bindMiddleware = (middleware: any) => {
 function configureStore() {
   // createStoreはパラメータ3つの場合、二つ目のパラメータにstoreの初期値を渡すこともできる。ここではその方法を使わず、初期化していない。
   const store = createStore(rootReducer, bindMiddleware(sagaMiddleware));
-  (store as (typeof store & {sagaTask: any})).sagaTask = sagaMiddleware.run(sagas);
+  (store as typeof store & { sagaTask: any }).sagaTask = sagaMiddleware.run(sagas);
   return store;
 }
 

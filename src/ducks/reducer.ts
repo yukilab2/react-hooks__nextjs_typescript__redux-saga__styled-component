@@ -7,7 +7,7 @@ export type RootState = {
 };
 
 const rootReducer = combineReducers({
-  example
+  example,
 });
 
 export default rootReducer;
